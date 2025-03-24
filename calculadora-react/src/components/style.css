@@ -1,0 +1,17 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(230, 230, 230);
+}
+
+button{
+    margin-bottom: 10px;
+    background-color: rgb(203, 206, 206);
+}   
+
+.form{
+    background-color: white;
+    padding: 15px 32px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
