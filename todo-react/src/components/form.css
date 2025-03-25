@@ -1,0 +1,115 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    background-color: #333
+}
+
+.todo-container {
+    max-width: 400px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+    color: #333;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  
+}
+
+.todo-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ccc;
+    color: #333;
+    font-weight: bold;
+}
+
+.todo-input button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.todo-input button:hover {
+    background-color: #218838;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+    max-height: 300px; /* Altura máxima para activar el scroll */
+    overflow-y: auto; /* Scroll vertical si es necesario */
+}
+
+.todo-list li {
+    display: flex;
+    justify-content: space-between; /* Distribuye el contenido */
+    align-items: center; /* Alinea verticalmente */
+    background-color: rgb(230, 228, 228);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+
+    word-break: break-word; 
+    white-space: normal; 
+    overflow: hidden;
+}
+
+.todo-list li span {
+    flex: 1; /* Ajusta el espacio de los textos */
+    margin-right: 10px; /* Separación entre los elementos */
+}
+
+.todo-list li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.todo-list li button:hover {
+    background-color: #c82333;
+}
+
+.delete-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #dc3545;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.delete-box:hover {
+    background-color: #c82333;
+}
+
+.delete-box:active {
+    transform: scale(0.95);
+}
