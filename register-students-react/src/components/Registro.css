@@ -1,14 +1,23 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    background-color: #333
+}
 
 .todo-container {
     max-width: 400px;
-    margin: 0 auto;
     text-align: center;
     font-family: Arial, sans-serif;
     background-color: aliceblue;
     color: #333;
     padding: 2rem;
     border-radius: 10px;
-    margin: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  
 }
 
 .todo-input {
@@ -46,25 +55,46 @@
     list-style: none;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    text-align: justify;
     border-radius: 20px;
+    max-height: 300px; /* Altura máxima para activar el scroll */
+    overflow-y: auto; /* Scroll vertical si es necesario */
 }
 
 .todo-list li {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Distribuye el contenido */
+    align-items: center; /* Alinea verticalmente */
     background-color: rgb(255, 255, 255);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
     font-family: 'Poppins', sans-serif;
+
+    /* Manejo de textos largos */
+    word-break: break-word; /* Rompe palabras largas */
+    white-space: normal; /* Permite el salto de línea */
+    overflow: hidden; /* Oculta el desbordamiento */
 }
 
-.todo-list li.completed span {
-    text-decoration: line-through;
-    color: #ffffff;
+/* Opcional: Limitar la anchura de las secciones */
+.todo-list li span {
+    flex: 1; /* Ajusta el espacio de los textos */
+    margin-right: 10px; /* Separación entre los elementos */
+}
+
+/* Personalización del scrollbar */
+.todo-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .todo-list li button {
@@ -82,7 +112,7 @@
 
 .delete-box {
     margin-top: 20px;
-    padding: 10px;
+    padding: 15px;
     background-color: #dc3545;
     color: white;
     text-align: center;

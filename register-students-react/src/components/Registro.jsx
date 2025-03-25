@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-const Todo = () => {
+const Registro = () => {
     const [estudiantes, setEstudiantes] = useState([]);
     const [nombre, setNombre] = useState("");
     const [edad, setEdad] = useState("")
@@ -12,44 +12,47 @@ const Todo = () => {
 
     const agregarEstudiante = () => {
         if (nombre.trim() === "" || edad.trim() === "" || carnet.trim() === "") return;
-        setEstudiantes([...estudiante, { id: Date.now(), nombre : nombreEstudiante, edad: edadEstudiante, carnet : carnetEstudiante }]);
-        setEstudiantes("");
+        setEstudiantes([...estudiantes, { id: Date.now(), nombreEstudiante : nombre, edadEstudiante: edad, carnetEstudiante : carnet }]);
+        setNombre("")
+        setCarnet("")
+        setEdad("")
     };
 
-    const deleteTodo = (id) => {
-        setTodos(todos.filter((todo) => todo.id !== id));
+    const estudianteEliminado = (id) => {
+        setEstudiantes(estudiantes.filter((estudiante) => estudiante.id !== id));
     };
 
     const handleDragStart = (id) => {
-        setDraggedTodo(id);
+        setDraggedEstudiante(id);
     };
 
     const handleDrop = () => {
-        if (draggedTodo) {
-            deleteTodo(draggedTodo);
-            setDraggedTodo(null);
+        if (draggedEstudiante) {
+            estudianteEliminado(draggedEstudiante);
+            setDraggedEstudiante(null);
         }
     };
 
     const handleDragEnd = () => {
-        setDraggedTodo(null);
+        setDraggedEstudiante(null);
     };
 
     return (
         <div className="todo-container">
+            <h2>Registro Estudiantil</h2>
 <Box
       component="form"
       sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
       noValidate
       autoComplete="off">
-    <TextField id="outlined-basic" label="Nombre" variant="outlined" value={nombre} 
+    <TextField id="outlined-basic" label="Nombre de estudiante" variant="outlined" value={nombre} 
       onChange={(e) => setNombre(e.target.value)}/>
         <br></br>
         
-    <TextField id="outlined-basic" type="Number" label="Edad" variant="outlined" value={edad} 
+    <TextField id="outlined-basic" type="Number" label="Edad de estudiante" variant="outlined" value={edad} 
       onChange={(e) => setEdad(e.target.value)}/>
         <br></br>
-    <TextField id="outlined-basic" label="Carnet" variant="outlined" value={carnet} 
+    <TextField id="outlined-basic" label="Carnet del estudiante" variant="outlined" value={carnet} 
       onChange={(e) => setCarnet(e.target.value)}/>
 </Box> 
 
@@ -63,8 +66,10 @@ const Todo = () => {
                         onDragStart={() => handleDragStart(estudiante.id)}
                         onDragEnd={handleDragEnd}
                     >
-                        <span>{estudiante.text}</span>
-                    </li>
+                <span>👤 Nombre: {estudiante.nombreEstudiante}</span> <br />
+                <span>🎂 Edad: {estudiante.edadEstudiante}</span> <br />
+                <span>🆔 Carnet: {estudiante.carnetEstudiante}</span>                    
+                </li>
                 ))}
             </ul>
             
@@ -79,5 +84,5 @@ const Todo = () => {
     );
 };
 
-export default Todo;
+export default Registro;
 
